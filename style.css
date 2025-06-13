@@ -1,0 +1,1130 @@
+/* Importa easings para transições suaves (opcional, mas recomendado para o SVG) */
+@import "https://unpkg.com/open-props/easings.min.css";
+
+/* Definição de variáveis CSS globais e específicas do tema */
+:root {
+    /* Habilita o navegador a ajustar elementos de UI padrão (scrollbars, etc.) */
+    color-scheme: light dark;
+
+    /* Cores primárias e secundárias (independentes do tema) */
+    --primary: #0BF296;
+    --primary-dark: #09d985;
+    --secondary: #00CCFF;
+    --success: #10b981;
+    --danger: #ef4444;
+
+    /* Propriedades de layout e transição */
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+/* Tema Escuro (Padrão) - Mantém as cores originais do seu projeto */
+[data-theme="dark"] {
+    --background-color: #0c0c11; /* Cor de fundo principal */
+    --surface-color: #1a1b21; /* Cor para superfícies como cards, inputs, skill-tags */
+    --surface-nav-default: rgba(12, 12, 17, 0.95); /* Cor da nav sem scroll */
+    --surface-nav-scrolled: rgba(8, 8, 9, 0.98); /* Cor da nav com scroll, about, footer */
+
+    --text-color: #ecf0f3; /* Cor do texto principal */
+    --secondary-text-color: #8b95a0; /* Cor do texto secundário (gray) */
+
+    --link-color: var(--primary);
+    --link-hover-color: var(--light); /* Mudado para light conforme seu original */
+
+    --button-primary-bg: var(--primary);
+    --button-primary-text: #0c0c11; /* Cor do texto para botões primários (dark) */
+    --button-outline-border: var(--primary);
+    --button-outline-text: var(--primary);
+    --button-outline-hover-bg: var(--primary);
+    --button-outline-hover-text: #0c0c11; /* Cor do texto ao passar o mouse */
+
+    --input-bg: rgba(18, 22, 33, 0.8);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-text: #ecf0f3;
+    --input-placeholder: #8b95a0;
+
+    --icon-fill: #ecf0f3; /* Cor do ícone para tema escuro (light) */
+    --icon-fill-hover: #ffffff; /* Cor do ícone ao passar o mouse */
+
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --shadow-color-strong: rgba(0, 0, 0, 0.3);
+
+    --filter-btn-bg: transparent;
+    --filter-btn-border: rgba(11, 242, 150, 0.1);
+    --filter-btn-text: #8b95a0; /* gray */
+    --filter-btn-hover-bg: var(--primary);
+    --filter-btn-hover-text: #0c0c11; /* dark */
+
+    /* Para o skeleton loading */
+    --skeleton-start-color: #1a1b21;
+    --skeleton-mid-color: #2a2c35;
+}
+
+/* Tema Claro - Cores ajustadas para um visual branco, mantendo o verde principal */
+[data-theme="light"] {
+    --background-color: #f0f2f5; /* Cor de fundo principal mais suave */
+    --surface-color: #ffffff; /* Cor para superfícies como cards, inputs, skill-tags */
+    --surface-nav-default: rgba(255, 255, 255, 0.95);
+    --surface-nav-scrolled: rgba(245, 245, 245, 0.98);
+
+    --text-color: #2c3e50; /* Texto escuro forte */
+    --secondary-text-color: #7f8c8d; /* Texto secundário mais suave */
+
+    --link-color: var(--primary); /* Mantém o verde */
+    --link-hover-color: var(--primary-dark); /* Mantém o verde escuro */
+
+    --button-primary-bg: var(--primary); /* Mantém o verde */
+    --button-primary-text: #ffffff; /* Texto branco no botão verde */
+    --button-outline-border: var(--primary); /* Mantém o verde */
+    --button-outline-text: var(--primary); /* Mantém o verde */
+    --button-outline-hover-bg: var(--primary); /* Mantém o verde */
+    --button-outline-hover-text: #ffffff; /* Texto branco no hover */
+
+    --input-bg: #ffffff;
+    --input-border: #bdc3c7;
+    --input-text: #2c3e50;
+    --input-placeholder: #95a5a6;
+
+    --icon-fill: #2c3e50; /* Cor do ícone para tema claro */
+    --icon-fill-hover: #000000; /* Cor do ícone ao passar o mouse */
+
+    --border-subtle: #dfe6e9;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --shadow-color-strong: rgba(0, 0, 0, 0.15);
+
+    --filter-btn-bg: #e2e6ea;
+    --filter-btn-border: #bdc3c7;
+    --filter-btn-text: #7f8c8d;
+    --filter-btn-hover-bg: var(--primary); /* Mantém o verde */
+    --filter-btn-hover-text: #ffffff;
+    
+    /* Para o skeleton loading */
+    --skeleton-start-color: #e2e6ea;
+    --skeleton-mid-color: #d1d8dd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'JetBrains Mono', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; /* Transição suave */
+}
+
+/* Container e Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+    scroll-margin-top: 80px;
+    position: relative;
+    z-index: 1;
+    /* Usa a cor de fundo do tema. A section 'about' e 'contact' terão a cor do surface-nav-scrolled */
+    background-color: var(--background-color); 
+    transition: background-color var(--transition-speed) ease; /* Transição suave */
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+    transition: color var(--transition-speed) ease; /* Transição suave */
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary); /* Mantém o verde */
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+    transition: color var(--transition-speed) ease; /* Transição suave */
+}
+
+/* Navegação */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-nav-default);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    z-index: 9999;
+    transition: all var(--transition-speed) ease;
+    border-bottom: 1px solid var(--border-subtle);
+    backdrop-filter: blur(10px);
+}
+
+nav.scrolled {
+    background-color: var(--surface-nav-scrolled);
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    transition: padding var(--transition-speed) ease;
+    max-width: none;
+    margin: 0;
+}
+
+nav.scrolled .nav-container {
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary); /* Mantém o verde */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    z-index: 10000;
+}
+
+.logo::before {
+    content: "{}";
+    margin-right: 8px;
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+    z-index: 10000;
+}
+
+.nav-menu li {
+    margin-left: 0;
+}
+
+.nav-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+    padding: 8px 12px;
+    position: relative;
+    display: block;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary); /* Mantém o verde */
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active-link::after {
+    width: 80%;
+}
+
+.nav-menu a:hover {
+    color: var(--primary); /* Mantém o verde */
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    z-index: 10001;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color); /* Usa a cor do texto do tema */
+    transition: all var(--transition-speed) ease;
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Ajustado para usar variáveis de tema */
+    background: linear-gradient(135deg, var(--background-color) 0%, var(--surface-color) 100%);
+    overflow: hidden;
+    position: relative;
+    padding-top: 120px;
+    padding-bottom: 50px;
+    z-index: 1;
+    transition: background var(--transition-speed) ease; /* Transição suave */
+}
+
+.hero-content {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+    animation: fadeIn 1s ease-out;
+    position: relative;
+}
+
+.hero h1 .highlight {
+    color: var(--primary); /* Mantém o verde */
+}
+
+.hero h1 .tag {
+    color: var(--secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    animation: fadeIn 1s ease-out 0.3s forwards;
+    opacity: 0;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    animation: fadeIn 1s ease-out 0.6s forwards;
+    opacity: 0;
+    justify-content: flex-start;
+}
+
+.hero-social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    animation: fadeIn 1s ease-out 0.9s forwards;
+    opacity: 0;
+}
+
+.hero-social-links a {
+    color: var(--primary); /* Mantém o verde */
+    font-size: 1.8rem;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    display: inline-block;
+}
+
+.hero-social-links a:hover {
+    color: var(--link-hover-color); /* Usa a cor do link hover do tema */
+    transform: translateY(-3px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    z-index: 10;
+}
+
+.btn-primary {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark); /* Mantém o verde escuro */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(11, 242, 150, 0.2);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--button-outline-text);
+    border: 2px solid var(--button-outline-border);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.btn-outline:hover {
+    color: var(--button-outline-hover-text);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--button-outline-hover-bg);
+    z-index: -1;
+    transition: width var(--transition-speed) ease;
+}
+
+.btn-outline:hover::before {
+    width: 100%;
+}
+
+/* Sobre Section */
+.about {
+    background-color: var(--surface-nav-scrolled); /* Usa a cor de superfície para a seção about */
+    position: relative;
+    z-index: 1;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px var(--shadow-color), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    flex: 1;
+    position: relative;
+}
+
+.about-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary); /* Mantém o verde */
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill-tag {
+    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+    color: var(--primary); /* Mantém o verde */
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+/* Projetos Section */
+.projects {
+    background-color: var(--background-color); /* Usa a cor de fundo do tema */
+    position: relative;
+    z-index: 1;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.filter-btn {
+    background-color: var(--filter-btn-bg);
+    border: 1px solid var(--filter-btn-border);
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: all var(--transition-speed) ease;
+    color: var(--filter-btn-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: var(--filter-btn-hover-text);
+    background-color: var(--filter-btn-hover-bg);
+    border-color: var(--primary); /* Mantém o verde */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    position: relative;
+}
+
+.project-card {
+    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border var(--transition-speed) ease;
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px var(--shadow-color-strong), 0 10px 10px -5px var(--shadow-color-strong);
+    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    z-index: 3;
+}
+
+.project-image {
+    height: 200px;
+    width: 100%;
+    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-category {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(11, 242, 150, 0.2);
+    color: var(--primary); /* Mantém o verde */
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    z-index: 5;
+}
+
+.project-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.project-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+}
+
+.project-info p {
+    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+    position: relative;
+}
+
+.project-links a {
+    color: var(--primary); /* Mantém o verde */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color var(--transition-speed) ease;
+    position: relative;
+}
+
+.project-links a i {
+    font-size: 0.8rem;
+}
+
+.project-links a:hover {
+    color: var(--primary-dark); /* Mantém o verde escuro */
+}
+
+/* Contato Section */
+.contact {
+    background-color: var(--surface-nav-scrolled); /* Usa a cor de superfície do tema */
+    position: relative;
+    z-index: 1;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+    position: relative;
+}
+
+.contact-info, .contact-form {
+    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px -1px var(--shadow-color-strong);
+    border: 1px solid var(--border-subtle);
+    position: relative;
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.contact-info h3, .contact-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+    transition: color var(--transition-speed) ease;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary); /* Mantém o verde */
+    box-shadow: 0 0 0 2px rgba(11, 242, 150, 0.2); /* Mantém a sombra verde */
+    z-index: 2;
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-control::placeholder {
+    color: var(--input-placeholder);
+}
+
+.contact-info p {
+    margin-bottom: 25px;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(11, 242, 150, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--primary); /* Mantém o verde */
+    font-size: 1.2rem;
+    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    flex-shrink: 0;
+}
+
+.contact-details span {
+    display: block;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+    transition: color var(--transition-speed) ease;
+}
+
+.contact-details span:first-child {
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+}
+
+.contact-details a {
+    color: var(--link-color); /* Usa a cor do link do tema */
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.contact-details a:hover {
+    color: var(--link-hover-color); /* Usa a cor do link hover do tema */
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary); /* Mantém o verde */
+    transition: all var(--transition-speed) ease;
+    text-decoration: none;
+    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    font-size: 1.1rem;
+}
+
+.social-link:hover {
+    background-color: var(--primary); /* Mantém o verde */
+    color: var(--button-primary-text);
+    transform: translateY(-3px);
+    z-index: 2;
+}
+
+/* Footer */
+footer {
+    background-color: var(--surface-nav-scrolled); /* Usa a cor de superfície do tema */
+    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    padding: 50px 0 20px;
+    border-top: 1px solid var(--border-subtle);
+    position: relative;
+    z-index: 1;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.footer-about .logo {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.footer-about p {
+    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    font-size: 0.9rem;
+    max-width: 350px;
+}
+
+.footer-links h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    color: var(--text-color); /* Usa a cor do texto do tema */
+}
+
+.footer-links h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary); /* Mantém o verde */
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary); /* Mantém o verde */
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.9rem;
+    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+}
+
+/* Flutuante de números no hero */
+.floating-numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.binary-digit {
+    position: absolute;
+    color: rgba(11, 242, 150, 0.05); /* Mantém a cor original para o efeito visual */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    animation: fall linear infinite;
+    user-select: none;
+    will-change: transform, opacity;
+    z-index: 0;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh + 100px));
+        opacity: 0;
+    }
+}
+
+/* Animação do burger menu */
+.burger.active .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.active .line2 {
+    opacity: 0;
+}
+
+.burger.active .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Skeleton loading */
+.project-image.loading {
+    background: linear-gradient(90deg, var(--skeleton-start-color) 25%, var(--skeleton-mid-color) 50%, var(--skeleton-start-color) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Botão desabilitado */
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Estilização do Botão de Alternância de Tema (SVG) */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--icon-fill); /* Usa a variável para a cor do ícone */
+    transition: color var(--transition-speed) ease;
+    margin-left: 20px; /* Adiciona um pequeno espaçamento à esquerda do botão burger */
+}
+
+.theme-toggle:is(:hover, :focus-visible) {
+    color: var(--icon-fill-hover); /* Cor ao passar o mouse/focar */
+}
+
+.sun-and-moon > :is(.moon,.sun,.sun-beams) {
+    transform-origin: center;
+}
+
+.sun-and-moon > :is(.moon,.sun) {
+    fill: var(--icon-fill);
+}
+
+.theme-toggle:is(:hover, :focus-visible) > .sun-and-moon > :is(.moon,.sun) {
+    fill: var(--icon-fill-hover);
+}
+
+.sun-and-moon > .sun-beams {
+    stroke: var(--icon-fill);
+    stroke-width: 2px;
+}
+
+.theme-toggle:is(:hover, :focus-visible) .sun-and-moon > .sun-beams {
+    stroke: var(--icon-fill-hover);
+}
+
+/* Animações do SVG para o tema escuro */
+[data-theme="dark"] .sun-and-moon > .sun {
+    transform: scale(1.75);
+}
+
+[data-theme="dark"] .sun-and-moon > .sun-beams {
+    opacity: 0;
+}
+
+[data-theme="dark"] .sun-and-moon > .moon > circle {
+    transform: translateX(-7px);
+}
+
+@supports (cx: 1) {
+    [data-theme="dark"] .sun-and-moon > .moon > circle {
+        cx: 17;
+        transform: translateX(0);
+    }
+}
+
+/* Desativa transições para usuários que preferem movimento reduzido */
+@media (prefers-reduced-motion: no-preference) {
+  .sun-and-moon > .sun {
+        transition: transform .5s var(--ease-elastic-3);
+    }
+  .sun-and-moon > .sun-beams {
+        transition: transform .5s var(--ease-elastic-4), opacity .5s var(--ease-3);
+    }
+  .sun-and-moon > .moon > circle {
+        transition: transform .25s var(--ease-out-5);
+    }
+    @supports (cx: 1) {
+      .sun-and-moon > .moon > circle {
+            transition: cx .25s var(--ease-out-5);
+        }
+    }
+    [data-theme="dark"] .sun-and-moon > .sun {
+        transition-timing-function: var(--ease-3);
+        transition-duration: .25s;
+        transform: scale(1.75);
+    }
+    [data-theme="dark"] .sun-and-moon > .sun-beams {
+        transition-duration: .15s;
+        transform: rotateZ(-25deg);
+    }
+    [data-theme="dark"] .sun-and-moon > .moon > circle {
+        transition-duration: .5s;
+        transition-delay: .25s;
+    }
+}
+
+
+/* CORREÇÕES RESPONSIVAS */
+@media (max-width: 992px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--surface-nav-scrolled); /* Usa a cor de superfície do tema para o menu mobile */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right var(--transition-speed) ease;
+        z-index: 9998;
+        backdrop-filter: blur(15px);
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .burger {
+        display: flex;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero {
+        padding-top: 100px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-buttons {
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 6px 15px;
+    }
+}
