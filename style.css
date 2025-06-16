@@ -289,6 +289,8 @@ nav.scrolled .nav-container {
     border-radius: 2px;
 }
 
+
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -456,9 +458,9 @@ nav.scrolled .nav-container {
     flex: 1;
     max-width: 400px;
     margin: 0 auto;
-    border-radius: var(--border-radius);
+    border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 20px 25px -5px var(--shadow-color), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: none;
     position: relative;
 }
 
@@ -721,6 +723,39 @@ textarea.form-control {
     color: var(--input-placeholder);
 }
 
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+    max-width: 300px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notification-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.notification-error {
+    background-color: #f44336;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .contact-info p {
     margin-bottom: 25px;
     color: var(--text-color); /* Usa a cor do texto do tema */

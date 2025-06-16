@@ -1,4 +1,7 @@
 
+emailjs.init({
+    publicKey: "yNzzjEaGzntmsQeeM"
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     // --- Lógica de Alternância de Tema ---
@@ -17,6 +20,30 @@ document.addEventListener('DOMContentLoaded', function () {
         // Isso garante que o tema escuro seja o padrão se nenhuma preferência for encontrada.
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark';
     };
+
+    function showFeedback(message, type) {
+    // Remove existing feedback if present
+    const existingFeedback = document.querySelector('.notification');
+    if (existingFeedback) {
+        existingFeedback.remove();
+    }
+
+    // Create new notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    // Add to document
+    document.body.appendChild(notification);
+
+    // Remove notification after 3 seconds with fade effect
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
 
     let currentThemeSetting = getColorPreference(); // Inicializa o tema atual com base na cascata
 
@@ -57,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Debounce para eventos de scroll/resize
     function debounce(func, wait = 100) {
         let timeout;
-        return function(...args) {
+        return function (...args) {
             clearTimeout(timeout);
             timeout = setTimeout(() => func.apply(this, args), wait);
         };
@@ -66,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Navbar Shrink on Scroll
     const navbar = document.getElementById('navbar');
     if (navbar) {
-        window.onscroll = debounce(function() {
+        window.onscroll = debounce(function () {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
@@ -98,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     burger.setAttribute('aria-expanded', false);
                     document.body.style.overflow = '';
                 }
-                
+
                 // Scroll suave
                 const targetId = link.getAttribute('href');
                 if (targetId.startsWith('#')) {
@@ -128,14 +155,14 @@ document.addEventListener('DOMContentLoaded', function () {
             digit.classList.add('binary-digit');
             digit.textContent = Math.random() > 0.5 ? '1' : '0';
             digit.style.left = `${Math.random() * 100}%`;
-            
+
             const duration = Math.random() * 10 + 10;
             const delay = Math.random() * 5;
             digit.style.animationDuration = `${duration}s`;
             digit.style.animationDelay = `-${delay}s`;
-            
+
             floatingNumbersContainer.appendChild(digit);
-            
+
             // Remove o dígito após a animação
             setTimeout(() => {
                 if (digit.parentNode) {
@@ -148,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < numberOfDigits; i++) {
             createBinaryDigit();
         }
-        
+
         // Otimizar performance: (comentado, pois as animações CSS já são pausadas por visibilidade)
         // document.addEventListener('visibilitychange', () => {
         //     animationActive = !document.hidden;
@@ -164,9 +191,9 @@ document.addEventListener('DOMContentLoaded', function () {
             button.addEventListener('click', () => {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                
+
                 const filter = button.getAttribute('data-filter');
-                
+
                 projectCards.forEach(card => {
                     const category = card.getAttribute('data-category');
                     if (filter === 'all' || filter === category) {
@@ -179,56 +206,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // EmailJS com validação
+    // EmailJS 
 
-    
     const contactForm = document.getElementById("contact-form");
-    
-    // Sanitização de inputs
-    function sanitizeInput(input) {
-        const div = document.createElement('div');
-        div.textContent = input;
-        return div.innerHTML;
-    }
 
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            
-            // Validação de email
-            const emailInput = document.getElementById('email');
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-                console.warn("Por favor, insira um email válido."); // Usando console.warn no lugar de alert
-                // Pode adicionar feedback visual para o usuário aqui, como um span de erro
-                return;
-            }
-            
-            // Sanitizar inputs (Embora os valores não sejam usados diretamente no emailjs.sendForm(this),
-            // a sanitização ainda é uma boa prática para outros usos ou validações futuras)
-            const name = sanitizeInput(document.getElementById('name').value);
-            const message = sanitizeInput(document.getElementById('message').value);
-            const subject = sanitizeInput(document.getElementById('subject').value);
-            
-            // Feedback visual
+
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
+
             submitButton.textContent = "Enviando...";
             submitButton.disabled = true;
-            
-            // Enviar formulário
-            // *** AQUI É ONDE AS ALTERAÇÕES SÃO FEITAS ***
-            // Substitua "YOUR_SERVICE_ID" e "YOUR_TEMPLATE_ID" pelos seus IDs reais do EmailJS.
-            // O User ID já é inicializado no seu HTML (<script> emailjs.init("nZywUTOzS3N8nGaZQ"); </script>)
-            emailjs.sendForm("service_k6gzw9p", "template_qhdevdm", this) // Use seus IDs reais aqui
+
+            emailjs.sendForm("service_k6gzw9p", "template_kcvikq9", contactForm)
                 .then(() => {
-                    console.log("Mensagem enviada com sucesso!"); // Usando console.log no lugar de alert
-                    // Adicione uma mensagem de sucesso mais amigável ao usuário, se desejar
-                    alert("Sua mensagem foi enviada com sucesso!");
-                    contactForm.reset(); // Limpa o formulário após o envio
-                }, (error) => {
-                    console.error("Erro ao enviar: " + error.text); // Usando console.error no lugar de alert
-                    // Adicione uma mensagem de erro mais amigável ao usuário
-                    alert("Ops! Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde.");
+                    showFeedback("Sua mensagem foi enviada com sucesso! Retornarei em breve.", "success");
+                    contactForm.reset();
+                })
+                .catch((error) => {
+                    console.error("Erro ao enviar:", error);
+                    showFeedback("Ops! Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde.", "error");
                 })
                 .finally(() => {
                     submitButton.textContent = originalText;
@@ -236,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
     }
-    
+
     // Prefetch de imagens
     if (window.innerWidth > 768) {
         const links = ['#about', '#projects', '#contact'];
@@ -253,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    
+
     // Remover skeleton após carregamento
     window.addEventListener('load', () => {
         document.querySelectorAll('.project-image').forEach(img => {
@@ -286,14 +285,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLi.forEach(a => {
                 a.classList.remove('active-link');
                 if (a.getAttribute('href').includes(current)) {
                     a.classList.add('active-link');
                 }
             });
-            
+
             // Lógica para destacar "Home" quando no topo da página
             if (window.scrollY < sections[0].offsetTop - (navbar.offsetHeight + 20)) {
                 navLi.forEach(a => a.classList.remove('active-link'));
@@ -301,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (homeLink) homeLink.classList.add('active-link');
             }
         }));
-        
+
         // Ativa o link "Home" por padrão ao carregar a página
         const homeLink = document.querySelector('nav .nav-menu a[href="#home"]');
         if (homeLink) homeLink.classList.add('active-link');

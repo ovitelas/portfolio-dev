@@ -7,10 +7,11 @@
     <title>Portfolio | Desenvolvedor de Software</title>
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self';
-               script-src 'self' https://cdn.jsdelivr.net;
-               style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline';
-               font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-               img-src 'self' data: https://via.placeholder.com;">
+           script-src 'self' https://cdn.jsdelivr.net https://api.emailjs.com 'unsafe-inline';
+           style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com 'unsafe-inline';
+           font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+           img-src 'self' data: https://via.placeholder.com;
+           connect-src 'self' https://api.emailjs.com;">
 
     <!-- Critical CSS - CORRIGIDO -->
     <style>
@@ -34,6 +35,25 @@
                 opacity: 1;
             }
         }
+
+        .form-feedback {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .form-feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
     </style>
 
     <!-- Font Awesome com SRI -->
@@ -52,10 +72,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- EmailJS (carregamento assíncrono) -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        emailjs.init("nZywUTOzS3N8nGaZQ");
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 </head>
 
 <body>
@@ -138,13 +156,14 @@
             <h2>Sobre Mim</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://via.placeholder.com/400x400/0c0c11/ecf0f3?text=Sua+Foto&format=webp"
+                    <img src="assets/perfil.png" class="loading about-image" width="200" height="200"
                         alt="Foto do Desenvolvedor" loading="lazy">
                 </div>
                 <div class="about-text">
                     <h3>Desenvolvedor</h3>
                     <p>Do e-commerce ao código: minha jornada tech! </br>
-                        Sou Victor Hugo, mas no mundo dev sou conhecido como ovitelas. Minha trajetória começou no
+                        Sou Victor Hugo, mas no mundo dev sou conhecido como <strong>ovitelas</strong>. Minha trajetória
+                        começou no
                         e-commerce e análise de dados, onde descobri o poder da automação e otimização.
                         Hoje, combino essa experiência prática com desenvolvimento backend para criar soluções que
                         realmente impactam.</p>
@@ -193,7 +212,8 @@
             <div class="projects-grid">
                 <div class="project-card" data-category="back-end">
                     <div class="project-image loading">
-                        <img src="https://via.placeholder.com/400x200/0c0c11/0BF296?text=API+REST+Java&format=webp"
+                        
+                        <img src="https://placehold.co/400x200?text=API+REST+Java" alt="API REST Java" format="webp"
                             alt="API REST com Java" loading="lazy">
                         <div class="project-category">Back-End</div>
                     </div>
@@ -212,7 +232,7 @@
                 <!-- projetos card -->
                 <div class="project-card" data-category="back-end">
                     <div class="project-image loading">
-                        <img src="https://via.placeholder.com/400x200/0c0c11/0BF296?text=Sistema+Bar+Restaurante&format=webp"
+                        <img src="https://placehold.co/400x200?text=Sistema+ERP+Java" alt="Sistema ERP" format="webp"
                             alt="Sistema ERP" loading="lazy">
                         <div class="project-category">Back-End</div>
                     </div>
@@ -230,7 +250,7 @@
 
                 <div class="project-card" data-category="front-end">
                     <div class="project-image loading">
-                        <img src="https://via.placeholder.com/400x200/0c0c11/0BF296?text=Sistema+Bar+Restaurante&format=webp"
+                        <img src="https://placehold.co/400x200?text=Landing+Page" alt="Modelo de Landing Page" format="webp"
                             alt=" Modelo de Landing Page" loading="lazy">
                         <div class="project-category">Front-End</div>
                     </div>
@@ -248,7 +268,7 @@
 
                 <div class="project-card" data-category="back-end">
                     <div class="project-image loading">
-                        <img src="https://via.placeholder.com/400x200/0c0c11/0BF296?text=Sistema+Bar+Restaurante&format=webp"
+                        <img src="https://placehold.co/400x200?text=Sistema+Bar+Restaurante" alt="Sistema Bar Restaurante" format="webp"
                             alt="Sistema Bar/Restaurante" loading="lazy">
                         <div class="project-category">Back-End</div>
                     </div>
@@ -266,7 +286,7 @@
 
                 <div class="project-card" data-category="front-end">
                     <div class="project-image loading">
-                        <img src="https://via.placeholder.com/400x200/0c0c11/0BF296?text=Sistema+Bar+Restaurante&format=webp"
+                        <img src="https://placehold.co/400x200?text=XXX+XXXX+XXX" alt="XXXXXXXXX" format="webp"
                             alt=" XXXXXXXXXXXXX" loading="lazy">
                         <div class="project-category">Front-End</div>
                     </div>
@@ -334,16 +354,18 @@
                     </div>
                 </div>
 
+                <div id="form-feedback" class="form-feedback"></div>
+
                 <div class="contact-form">
                     <h3>Envie uma Mensagem</h3>
                     <form id="contact-form">
                         <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                            <label for="from_name">Nome</label>
+                            <input type="text" id="from_name" name="from_name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <label for="reply_to">Email</label>
+                            <input type="email" id="reply_to" name="reply_to" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Assunto</label>
@@ -359,6 +381,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- Footer -->
     <footer>
