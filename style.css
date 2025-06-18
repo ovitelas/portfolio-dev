@@ -20,31 +20,42 @@
 
 /* Tema Escuro (Padrão) - Mantém as cores originais do seu projeto */
 [data-theme="dark"] {
-    --background-color: #0c0c11; /* Cor de fundo principal */
-    --surface-color: #1a1b21; /* Cor para superfícies como cards, inputs, skill-tags */
-    --surface-nav-default: rgba(12, 12, 17, 0.95); /* Cor da nav sem scroll */
-    --surface-nav-scrolled: rgba(8, 8, 9, 0.98); /* Cor da nav com scroll, about, footer */
+    --background-color: #0c0c11;
+    /* Cor de fundo principal */
+    --surface-color: #1a1b21;
+    /* Cor para superfícies como cards, inputs, skill-tags */
+    --surface-nav-default: rgba(12, 12, 17, 0.95);
+    /* Cor da nav sem scroll */
+    --surface-nav-scrolled: rgba(8, 8, 9, 0.98);
+    /* Cor da nav com scroll, about, footer */
 
-    --text-color: #ecf0f3; /* Cor do texto principal */
-    --secondary-text-color: #8b95a0; /* Cor do texto secundário (gray) */
+    --text-color: #ecf0f3;
+    /* Cor do texto principal */
+    --secondary-text-color: #8b95a0;
+    /* Cor do texto secundário (gray) */
 
     --link-color: var(--primary);
-    --link-hover-color: var(--light); /* Mudado para light conforme seu original */
+    --link-hover-color: var(--light);
+    /* Mudado para light conforme seu original */
 
     --button-primary-bg: var(--primary);
-    --button-primary-text: #0c0c11; /* Cor do texto para botões primários (dark) */
+    --button-primary-text: #0c0c11;
+    /* Cor do texto para botões primários (dark) */
     --button-outline-border: var(--primary);
     --button-outline-text: var(--primary);
     --button-outline-hover-bg: var(--primary);
-    --button-outline-hover-text: #0c0c11; /* Cor do texto ao passar o mouse */
+    --button-outline-hover-text: #0c0c11;
+    /* Cor do texto ao passar o mouse */
 
     --input-bg: rgba(18, 22, 33, 0.8);
     --input-border: rgba(255, 255, 255, 0.1);
     --input-text: #ecf0f3;
     --input-placeholder: #8b95a0;
 
-    --icon-fill: #ecf0f3; /* Cor do ícone para tema escuro (light) */
-    --icon-fill-hover: #ffffff; /* Cor do ícone ao passar o mouse */
+    --icon-fill: #ecf0f3;
+    /* Cor do ícone para tema escuro (light) */
+    --icon-fill-hover: #ffffff;
+    /* Cor do ícone ao passar o mouse */
 
     --border-subtle: rgba(255, 255, 255, 0.05);
     --shadow-color: rgba(0, 0, 0, 0.2);
@@ -52,9 +63,11 @@
 
     --filter-btn-bg: transparent;
     --filter-btn-border: rgba(11, 242, 150, 0.1);
-    --filter-btn-text: #8b95a0; /* gray */
+    --filter-btn-text: #8b95a0;
+    /* gray */
     --filter-btn-hover-bg: var(--primary);
-    --filter-btn-hover-text: #0c0c11; /* dark */
+    --filter-btn-hover-text: #0c0c11;
+    /* dark */
 
     /* Para o skeleton loading */
     --skeleton-start-color: #1a1b21;
@@ -63,31 +76,45 @@
 
 /* Tema Claro - Cores ajustadas para um visual branco, mantendo o verde principal */
 [data-theme="light"] {
-    --background-color: #f0f2f5; /* Cor de fundo principal mais suave */
-    --surface-color: #ffffff; /* Cor para superfícies como cards, inputs, skill-tags */
+    --background-color: #f0f2f5;
+    /* Cor de fundo principal mais suave */
+    --surface-color: #ffffff;
+    /* Cor para superfícies como cards, inputs, skill-tags */
     --surface-nav-default: rgba(255, 255, 255, 0.95);
     --surface-nav-scrolled: rgba(245, 245, 245, 0.98);
 
-    --text-color: #2c3e50; /* Texto escuro forte */
-    --secondary-text-color: #7f8c8d; /* Texto secundário mais suave */
+    --text-color: #2c3e50;
+    /* Texto escuro forte */
+    --secondary-text-color: #7f8c8d;
+    /* Texto secundário mais suave */
 
-    --link-color: var(--primary); /* Mantém o verde */
-    --link-hover-color: var(--primary-dark); /* Mantém o verde escuro */
+    --link-color: var(--primary);
+    /* Mantém o verde */
+    --link-hover-color: var(--primary-dark);
+    /* Mantém o verde escuro */
 
-    --button-primary-bg: var(--primary); /* Mantém o verde */
-    --button-primary-text: #ffffff; /* Texto branco no botão verde */
-    --button-outline-border: var(--primary); /* Mantém o verde */
-    --button-outline-text: var(--primary); /* Mantém o verde */
-    --button-outline-hover-bg: var(--primary); /* Mantém o verde */
-    --button-outline-hover-text: #ffffff; /* Texto branco no hover */
+    --button-primary-bg: var(--primary);
+    /* Mantém o verde */
+    --button-primary-text: #ffffff;
+    /* Texto branco no botão verde */
+    --button-outline-border: var(--primary);
+    /* Mantém o verde */
+    --button-outline-text: var(--primary);
+    /* Mantém o verde */
+    --button-outline-hover-bg: var(--primary);
+    /* Mantém o verde */
+    --button-outline-hover-text: #ffffff;
+    /* Texto branco no hover */
 
     --input-bg: #ffffff;
     --input-border: #bdc3c7;
     --input-text: #2c3e50;
     --input-placeholder: #95a5a6;
 
-    --icon-fill: #2c3e50; /* Cor do ícone para tema claro */
-    --icon-fill-hover: #000000; /* Cor do ícone ao passar o mouse */
+    --icon-fill: #2c3e50;
+    /* Cor do ícone para tema claro */
+    --icon-fill-hover: #000000;
+    /* Cor do ícone ao passar o mouse */
 
     --border-subtle: #dfe6e9;
     --shadow-color: rgba(0, 0, 0, 0.08);
@@ -96,9 +123,10 @@
     --filter-btn-bg: #e2e6ea;
     --filter-btn-border: #bdc3c7;
     --filter-btn-text: #7f8c8d;
-    --filter-btn-hover-bg: var(--primary); /* Mantém o verde */
+    --filter-btn-hover-bg: var(--primary);
+    /* Mantém o verde */
     --filter-btn-hover-text: #ffffff;
-    
+
     /* Para o skeleton loading */
     --skeleton-start-color: #e2e6ea;
     --skeleton-mid-color: #d1d8dd;
@@ -115,7 +143,8 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; /* Transição suave */
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    /* Transição suave */
 }
 
 /* Container e Layout */
@@ -131,17 +160,25 @@ section {
     position: relative;
     z-index: 1;
     /* Usa a cor de fundo do tema. A section 'about' e 'contact' terão a cor do surface-nav-scrolled */
-    background-color: var(--background-color); 
-    transition: background-color var(--transition-speed) ease; /* Transição suave */
+    background-color: var(--background-color);
+    transition: background-color var(--transition-speed) ease;
+    /* Transição suave */
 }
 
 /* Tipografia */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: var(--text-color); /* Usa a cor do texto do tema */
-    transition: color var(--transition-speed) ease; /* Transição suave */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
+    transition: color var(--transition-speed) ease;
+    /* Transição suave */
 }
 
 h1 {
@@ -153,7 +190,8 @@ h2 {
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
 }
 
 h2::after {
@@ -161,7 +199,8 @@ h2::after {
     display: block;
     width: 80px;
     height: 4px;
-    background: var(--primary); /* Mantém o verde */
+    background: var(--primary);
+    /* Mantém o verde */
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -171,8 +210,10 @@ h2::after {
 
 p {
     margin-bottom: 1rem;
-    color: var(--text-color); /* Usa a cor do texto do tema */
-    transition: color var(--transition-speed) ease; /* Transição suave */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
+    transition: color var(--transition-speed) ease;
+    /* Transição suave */
 }
 
 /* Navegação */
@@ -211,7 +252,8 @@ nav.scrolled .nav-container {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -256,7 +298,8 @@ nav.scrolled .nav-container {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--primary); /* Mantém o verde */
+    background-color: var(--primary);
+    /* Mantém o verde */
     transition: width var(--transition-speed) ease;
 }
 
@@ -266,7 +309,8 @@ nav.scrolled .nav-container {
 }
 
 .nav-menu a:hover {
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
 }
 
 /* Burger Menu */
@@ -284,7 +328,8 @@ nav.scrolled .nav-container {
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: var(--text-color); /* Usa a cor do texto do tema */
+    background-color: var(--text-color);
+    /* Usa a cor do texto do tema */
     transition: all var(--transition-speed) ease;
     border-radius: 2px;
 }
@@ -305,7 +350,8 @@ nav.scrolled .nav-container {
     padding-top: 120px;
     padding-bottom: 50px;
     z-index: 1;
-    transition: background var(--transition-speed) ease; /* Transição suave */
+    transition: background var(--transition-speed) ease;
+    /* Transição suave */
 }
 
 .hero-content {
@@ -318,13 +364,15 @@ nav.scrolled .nav-container {
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
     animation: fadeIn 1s ease-out;
     position: relative;
 }
 
 .hero h1 .highlight {
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
 }
 
 .hero h1 .tag {
@@ -339,7 +387,8 @@ nav.scrolled .nav-container {
     max-width: 600px;
     animation: fadeIn 1s ease-out 0.3s forwards;
     opacity: 0;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
 }
 
 .hero-buttons {
@@ -360,14 +409,16 @@ nav.scrolled .nav-container {
 }
 
 .hero-social-links a {
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
     font-size: 1.8rem;
     transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
     display: inline-block;
 }
 
 .hero-social-links a:hover {
-    color: var(--link-hover-color); /* Usa a cor do link hover do tema */
+    color: var(--link-hover-color);
+    /* Usa a cor do link hover do tema */
     transform: translateY(-3px);
 }
 
@@ -376,6 +427,7 @@ nav.scrolled .nav-container {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -403,7 +455,8 @@ nav.scrolled .nav-container {
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-dark); /* Mantém o verde escuro */
+    background-color: var(--primary-dark);
+    /* Mantém o verde escuro */
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(11, 242, 150, 0.2);
 }
@@ -441,7 +494,8 @@ nav.scrolled .nav-container {
 
 /* Sobre Section */
 .about {
-    background-color: var(--surface-nav-scrolled); /* Usa a cor de superfície para a seção about */
+    background-color: var(--surface-nav-scrolled);
+    /* Usa a cor de superfície para a seção about */
     position: relative;
     z-index: 1;
     transition: background-color var(--transition-speed) ease;
@@ -478,7 +532,8 @@ nav.scrolled .nav-container {
 .about-text h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
 }
 
 .skills {
@@ -489,13 +544,16 @@ nav.scrolled .nav-container {
 }
 
 .skill-tag {
-    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
-    color: var(--primary); /* Mantém o verde */
+    background-color: var(--surface-color);
+    /* Usa a cor de superfície do tema */
+    color: var(--primary);
+    /* Mantém o verde */
     padding: 5px 15px;
     border-radius: 8px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    border: 1px solid rgba(11, 242, 150, 0.3);
+    /* Mantém a borda verde */
     font-family: 'JetBrains Mono', monospace;
     position: relative;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
@@ -503,7 +561,8 @@ nav.scrolled .nav-container {
 
 /* Projetos Section */
 .projects {
-    background-color: var(--background-color); /* Usa a cor de fundo do tema */
+    background-color: var(--background-color);
+    /* Usa a cor de fundo do tema */
     position: relative;
     z-index: 1;
     transition: background-color var(--transition-speed) ease;
@@ -536,7 +595,8 @@ nav.scrolled .nav-container {
 .filter-btn.active {
     color: var(--filter-btn-hover-text);
     background-color: var(--filter-btn-hover-bg);
-    border-color: var(--primary); /* Mantém o verde */
+    border-color: var(--primary);
+    /* Mantém o verde */
 }
 
 .projects-grid {
@@ -547,7 +607,8 @@ nav.scrolled .nav-container {
 }
 
 .project-card {
-    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+    background-color: var(--surface-color);
+    /* Usa a cor de superfície do tema */
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
@@ -562,14 +623,16 @@ nav.scrolled .nav-container {
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 25px -5px var(--shadow-color-strong), 0 10px 10px -5px var(--shadow-color-strong);
-    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    border: 1px solid rgba(11, 242, 150, 0.3);
+    /* Mantém a borda verde */
     z-index: 3;
 }
 
 .project-image {
     height: 200px;
     width: 100%;
-    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+    background-color: var(--surface-color);
+    /* Usa a cor de superfície do tema */
     position: relative;
     overflow: hidden;
 }
@@ -592,13 +655,15 @@ nav.scrolled .nav-container {
     top: 15px;
     right: 15px;
     background-color: rgba(11, 242, 150, 0.2);
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
     padding: 5px 15px;
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 500;
     font-family: 'JetBrains Mono', monospace;
-    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    border: 1px solid rgba(11, 242, 150, 0.3);
+    /* Mantém a borda verde */
     z-index: 5;
 }
 
@@ -613,11 +678,13 @@ nav.scrolled .nav-container {
 .project-info h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
 }
 
 .project-info p {
-    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    color: var(--secondary-text-color);
+    /* Usa a cor do texto secundário do tema */
     margin-bottom: 15px;
     flex-grow: 1;
 }
@@ -630,7 +697,8 @@ nav.scrolled .nav-container {
 }
 
 .project-links a {
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
@@ -646,12 +714,14 @@ nav.scrolled .nav-container {
 }
 
 .project-links a:hover {
-    color: var(--primary-dark); /* Mantém o verde escuro */
+    color: var(--primary-dark);
+    /* Mantém o verde escuro */
 }
 
 /* Contato Section */
 .contact {
-    background-color: var(--surface-nav-scrolled); /* Usa a cor de superfície do tema */
+    background-color: var(--surface-nav-scrolled);
+    /* Usa a cor de superfície do tema */
     position: relative;
     z-index: 1;
     transition: background-color var(--transition-speed) ease;
@@ -665,8 +735,10 @@ nav.scrolled .nav-container {
     position: relative;
 }
 
-.contact-info, .contact-form {
-    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+.contact-info,
+.contact-form {
+    background-color: var(--surface-color);
+    /* Usa a cor de superfície do tema */
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px -1px var(--shadow-color-strong);
@@ -675,10 +747,12 @@ nav.scrolled .nav-container {
     transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
 
-.contact-info h3, .contact-form h3 {
+.contact-info h3,
+.contact-form h3 {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
 }
 
 .form-group {
@@ -690,7 +764,8 @@ nav.scrolled .nav-container {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
     transition: color var(--transition-speed) ease;
 }
 
@@ -709,8 +784,10 @@ nav.scrolled .nav-container {
 
 .form-control:focus {
     outline: none;
-    border-color: var(--primary); /* Mantém o verde */
-    box-shadow: 0 0 0 2px rgba(11, 242, 150, 0.2); /* Mantém a sombra verde */
+    border-color: var(--primary);
+    /* Mantém o verde */
+    box-shadow: 0 0 0 2px rgba(11, 242, 150, 0.2);
+    /* Mantém a sombra verde */
     z-index: 2;
 }
 
@@ -732,7 +809,7 @@ textarea.form-control {
     z-index: 1000;
     animation: fadeIn 0.3s ease-in-out;
     max-width: 300px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -751,14 +828,17 @@ textarea.form-control {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 .contact-info p {
     margin-bottom: 25px;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
 }
 
 .contact-item {
@@ -777,32 +857,38 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
     margin-right: 15px;
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
     font-size: 1.2rem;
-    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    border: 1px solid rgba(11, 242, 150, 0.3);
+    /* Mantém a borda verde */
     flex-shrink: 0;
 }
 
 .contact-details span {
     display: block;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
     transition: color var(--transition-speed) ease;
 }
 
 .contact-details span:first-child {
     font-weight: 500;
     margin-bottom: 3px;
-    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    color: var(--secondary-text-color);
+    /* Usa a cor do texto secundário do tema */
 }
 
 .contact-details a {
-    color: var(--link-color); /* Usa a cor do link do tema */
+    color: var(--link-color);
+    /* Usa a cor do link do tema */
     text-decoration: none;
     transition: color var(--transition-speed) ease;
 }
 
 .contact-details a:hover {
-    color: var(--link-hover-color); /* Usa a cor do link hover do tema */
+    color: var(--link-hover-color);
+    /* Usa a cor do link hover do tema */
 }
 
 .social-links {
@@ -815,20 +901,24 @@ textarea.form-control {
 .social-link {
     width: 40px;
     height: 40px;
-    background-color: var(--surface-color); /* Usa a cor de superfície do tema */
+    background-color: var(--surface-color);
+    /* Usa a cor de superfície do tema */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
     transition: all var(--transition-speed) ease;
     text-decoration: none;
-    border: 1px solid rgba(11, 242, 150, 0.3); /* Mantém a borda verde */
+    border: 1px solid rgba(11, 242, 150, 0.3);
+    /* Mantém a borda verde */
     font-size: 1.1rem;
 }
 
 .social-link:hover {
-    background-color: var(--primary); /* Mantém o verde */
+    background-color: var(--primary);
+    /* Mantém o verde */
     color: var(--button-primary-text);
     transform: translateY(-3px);
     z-index: 2;
@@ -836,8 +926,10 @@ textarea.form-control {
 
 /* Footer */
 footer {
-    background-color: var(--surface-nav-scrolled); /* Usa a cor de superfície do tema */
-    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    background-color: var(--surface-nav-scrolled);
+    /* Usa a cor de superfície do tema */
+    color: var(--secondary-text-color);
+    /* Usa a cor do texto secundário do tema */
     padding: 50px 0 20px;
     border-top: 1px solid var(--border-subtle);
     position: relative;
@@ -859,7 +951,8 @@ footer {
 }
 
 .footer-about p {
-    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    color: var(--secondary-text-color);
+    /* Usa a cor do texto secundário do tema */
     font-size: 0.9rem;
     max-width: 350px;
 }
@@ -869,7 +962,8 @@ footer {
     margin-bottom: 20px;
     position: relative;
     padding-bottom: 10px;
-    color: var(--text-color); /* Usa a cor do texto do tema */
+    color: var(--text-color);
+    /* Usa a cor do texto do tema */
 }
 
 .footer-links h4::after {
@@ -879,7 +973,8 @@ footer {
     bottom: 0;
     width: 30px;
     height: 2px;
-    background-color: var(--primary); /* Mantém o verde */
+    background-color: var(--primary);
+    /* Mantém o verde */
 }
 
 .footer-links ul {
@@ -891,14 +986,16 @@ footer {
 }
 
 .footer-links a {
-    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    color: var(--secondary-text-color);
+    /* Usa a cor do texto secundário do tema */
     text-decoration: none;
     transition: color var(--transition-speed) ease;
     font-size: 0.95rem;
 }
 
 .footer-links a:hover {
-    color: var(--primary); /* Mantém o verde */
+    color: var(--primary);
+    /* Mantém o verde */
 }
 
 .copyright {
@@ -906,7 +1003,8 @@ footer {
     padding-top: 20px;
     border-top: 1px solid var(--border-subtle);
     font-size: 0.9rem;
-    color: var(--secondary-text-color); /* Usa a cor do texto secundário do tema */
+    color: var(--secondary-text-color);
+    /* Usa a cor do texto secundário do tema */
 }
 
 /* Flutuante de números no hero */
@@ -923,7 +1021,8 @@ footer {
 
 .binary-digit {
     position: absolute;
-    color: rgba(11, 242, 150, 0.05); /* Mantém a cor original para o efeito visual */
+    color: rgba(11, 242, 150, 0.05);
+    /* Mantém a cor original para o efeito visual */
     font-family: 'JetBrains Mono', monospace;
     font-size: 1rem;
     animation: fall linear infinite;
@@ -937,9 +1036,12 @@ footer {
         transform: translateY(-100px);
         opacity: 0;
     }
-    10%, 90% {
+
+    10%,
+    90% {
         opacity: 1;
     }
+
     100% {
         transform: translateY(calc(100vh + 100px));
         opacity: 0;
@@ -967,8 +1069,13 @@ footer {
 }
 
 @keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 /* Botão desabilitado */
@@ -990,51 +1097,54 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--icon-fill); /* Usa a variável para a cor do ícone */
+    color: var(--icon-fill);
+    /* Usa a variável para a cor do ícone */
     transition: color var(--transition-speed) ease;
-    margin-left: 20px; /* Adiciona um pequeno espaçamento à esquerda do botão burger */
+    margin-left: 20px;
+    /* Adiciona um pequeno espaçamento à esquerda do botão burger */
 }
 
 .theme-toggle:is(:hover, :focus-visible) {
-    color: var(--icon-fill-hover); /* Cor ao passar o mouse/focar */
+    color: var(--icon-fill-hover);
+    /* Cor ao passar o mouse/focar */
 }
 
-.sun-and-moon > :is(.moon,.sun,.sun-beams) {
+.sun-and-moon> :is(.moon, .sun, .sun-beams) {
     transform-origin: center;
 }
 
-.sun-and-moon > :is(.moon,.sun) {
+.sun-and-moon> :is(.moon, .sun) {
     fill: var(--icon-fill);
 }
 
-.theme-toggle:is(:hover, :focus-visible) > .sun-and-moon > :is(.moon,.sun) {
+.theme-toggle:is(:hover, :focus-visible)>.sun-and-moon> :is(.moon, .sun) {
     fill: var(--icon-fill-hover);
 }
 
-.sun-and-moon > .sun-beams {
+.sun-and-moon>.sun-beams {
     stroke: var(--icon-fill);
     stroke-width: 2px;
 }
 
-.theme-toggle:is(:hover, :focus-visible) .sun-and-moon > .sun-beams {
+.theme-toggle:is(:hover, :focus-visible) .sun-and-moon>.sun-beams {
     stroke: var(--icon-fill-hover);
 }
 
 /* Animações do SVG para o tema escuro */
-[data-theme="dark"] .sun-and-moon > .sun {
+[data-theme="dark"] .sun-and-moon>.sun {
     transform: scale(1.75);
 }
 
-[data-theme="dark"] .sun-and-moon > .sun-beams {
+[data-theme="dark"] .sun-and-moon>.sun-beams {
     opacity: 0;
 }
 
-[data-theme="dark"] .sun-and-moon > .moon > circle {
+[data-theme="dark"] .sun-and-moon>.moon>circle {
     transform: translateX(-7px);
 }
 
 @supports (cx: 1) {
-    [data-theme="dark"] .sun-and-moon > .moon > circle {
+    [data-theme="dark"] .sun-and-moon>.moon>circle {
         cx: 17;
         transform: translateX(0);
     }
@@ -1042,30 +1152,36 @@ footer {
 
 /* Desativa transições para usuários que preferem movimento reduzido */
 @media (prefers-reduced-motion: no-preference) {
-  .sun-and-moon > .sun {
+    .sun-and-moon>.sun {
         transition: transform .5s var(--ease-elastic-3);
     }
-  .sun-and-moon > .sun-beams {
+
+    .sun-and-moon>.sun-beams {
         transition: transform .5s var(--ease-elastic-4), opacity .5s var(--ease-3);
     }
-  .sun-and-moon > .moon > circle {
+
+    .sun-and-moon>.moon>circle {
         transition: transform .25s var(--ease-out-5);
     }
+
     @supports (cx: 1) {
-      .sun-and-moon > .moon > circle {
+        .sun-and-moon>.moon>circle {
             transition: cx .25s var(--ease-out-5);
         }
     }
-    [data-theme="dark"] .sun-and-moon > .sun {
+
+    [data-theme="dark"] .sun-and-moon>.sun {
         transition-timing-function: var(--ease-3);
         transition-duration: .25s;
         transform: scale(1.75);
     }
-    [data-theme="dark"] .sun-and-moon > .sun-beams {
+
+    [data-theme="dark"] .sun-and-moon>.sun-beams {
         transition-duration: .15s;
         transform: rotateZ(-25deg);
     }
-    [data-theme="dark"] .sun-and-moon > .moon > circle {
+
+    [data-theme="dark"] .sun-and-moon>.moon>circle {
         transition-duration: .5s;
         transition-delay: .25s;
     }
@@ -1080,7 +1196,8 @@ footer {
         right: -100%;
         width: 100%;
         height: 100vh;
-        background-color: var(--surface-nav-scrolled); /* Usa a cor de superfície do tema para o menu mobile */
+        background-color: var(--surface-nav-scrolled);
+        /* Usa a cor de superfície do tema para o menu mobile */
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -1088,25 +1205,25 @@ footer {
         z-index: 9998;
         backdrop-filter: blur(15px);
     }
-    
+
     .nav-menu.active {
         right: 0;
     }
-    
+
     .burger {
         display: flex;
     }
-    
+
     .about-content {
         flex-direction: column;
         gap: 40px;
     }
-    
+
     .contact-container {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -1118,15 +1235,15 @@ footer {
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     h2 {
         font-size: 2rem;
     }
-    
+
     .projects-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: flex-start;
@@ -1137,29 +1254,169 @@ footer {
     .container {
         padding: 0 15px;
     }
-    
+
     section {
         padding: 60px 0;
     }
-    
+
     .hero {
         padding-top: 100px;
     }
-    
+
     .hero h1 {
         font-size: 2rem;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .filter-buttons {
         gap: 10px;
     }
-    
+
     .filter-btn {
         font-size: 0.8rem;
         padding: 6px 15px;
+    }
+
+
+
+    @media (max-width: 576px) {
+
+        /* Ajustes adicionais para telas muito pequenas */
+        .container {
+            padding: 0 12px;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        h2::after {
+            width: 60px;
+            height: 3px;
+            bottom: -8px;
+        }
+
+        .hero {
+            padding-top: 80px;
+            padding-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            max-width: 100%;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            font-size: 0.9rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .about-content {
+            gap: 30px;
+        }
+
+        .about-image {
+            max-width: 250px;
+        }
+
+        .skill-tag {
+            padding: 4px 12px;
+            font-size: 0.8rem;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            min-width: 0;
+        }
+
+        .project-image {
+            height: 180px;
+        }
+
+        .contact-info,
+        .contact-form {
+            padding: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        /* Garante que imagens não ultrapassem a largura da tela */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ajuste para o menu mobile */
+        .nav-menu {
+            padding: 60px 20px;
+        }
+
+        .nav-menu a {
+            font-size: 1.2rem;
+            padding: 10px 0;
+        }
+
+        /* Melhora a legibilidade do texto */
+        body {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+    }
+
+    /* Adicione esta regra para melhorar a visualização em tablets */
+    @media (max-width: 768px) and (min-width: 577px) {
+        .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+        }
+    }
+
+    /* Garante que o viewport seja configurado corretamente */
+    @viewport {
+        width: device-width;
+        zoom: 1.0;
     }
 }
