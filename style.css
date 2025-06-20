@@ -1407,7 +1407,7 @@ nav.scrolled .nav-container {
     background-color: var(--surface-color);
     /* Usa a cor de superfície do tema */
 
-    padding: 30px;
+    padding: 12px;
 
     border-radius: var(--border-radius);
 
@@ -2506,7 +2506,7 @@ footer {
     
     .contact-info, 
     .contact-form {
-        padding: 20px;
+        padding: 12px;
     }
     
     .contact-item {
