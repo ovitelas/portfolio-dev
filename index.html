@@ -181,9 +181,10 @@
                         eficientes?</p>
 
                     <div class="skills">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Spring Boot</span>
                         <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">AI</span>
+                        <span class="skill-tag">Spring Boot</span>
                         <span class="skill-tag">Django</span>
                         <span class="skill-tag">SQL</span>
                         <span class="skill-tag">PostgreSQL</span>
@@ -206,12 +207,15 @@
             <h2>Meus Projetos</h2>
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="ai">IA</button>
                 <button class="filter-btn" data-filter="back-end">Back-End</button>
                 <button class="filter-btn" data-filter="front-end">Front-End</button>
                 <button class="filter-btn" data-filter="full-stack">Full-Stack</button>
                 <button class="filter-btn" data-filter="data">Análise de Dados</button>
             </div>
 
+            
+                
             <div class="projects-grid">
                 <div class="project-card" data-category="back-end">
                     <div class="project-image loading">
@@ -235,7 +239,29 @@
                     </div>
                 </div>
 
-                <!-- projetos card -->
+                <!-- projetos card --> <!-- Adicionar os projeto de IA aqui, colocar em primeiro os mais robustos -->
+
+                <div class="project-card" data-category="ai">
+                    <div class="project-image loading">
+                        <img src="assets/ai-agent-base-model.png" alt="E-Commerce Agente" format="webp"
+                            alt="Sistema Restaurante Gestão Comandas, Produtos, Clientes" loading="lazy">
+                        <div class="project-category">IA</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>IA Agente de Atendimento E-Commerce com LangChain</h3>
+                        <p>Sistema inteligente de atendimento ao cliente para e-commerce do nicho piscinas, 
+                            com classificação automática de intenção e respostas com base em um RAG sobre base de conhecimento local.</p>
+                        <p><strong>LangChain, ChromaDB, Python, CrewAI, OpenAI API, LLM, RAG, NLP, HuggingFace, Pytest</strong></p>
+                        <div class="project-links">
+                            <a href="https://github.com/ovitelas/e-commerce-agent" target="_blank"
+                                rel="noopener"><i class="fas fa-external-link-alt"></i> Ver
+                                Demo</a>
+                            <a href="https://github.com/ovitelas/e-commerce-agent" target="_blank"
+                                rel="noopener"><i class="fab fa-github"></i> Código Fonte</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card" data-category="full-stack">
                     <div class="project-image loading">
                         <img src="assets/sistema-bar-postgree.png" alt="Sistema Web Gestão" format="webp"
